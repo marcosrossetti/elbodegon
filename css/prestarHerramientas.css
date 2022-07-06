@@ -1,0 +1,32 @@
+.img-auto {
+    object-fit: scale-down;
+    width: 100%;
+    /*width: 253px;*/
+    
+}
+
+@media (min-width: 576px) {
+    .img-auto {
+        height: 290px;
+    }
+
+ }
+
+@media (min-width: 768px) {
+    .img-auto {
+        height: 187px;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .img-auto {
+            height: 119px;
+        }
+}
+
+@media (min-width: 1200px) {
+    .img-auto {
+            height: 145px;
+        }
+}
