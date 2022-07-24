@@ -36,7 +36,7 @@ jQuery( document ).ready(function() {
         
                            let timerInterval
                             Swal.fire({
-                              title: 'Bienvenido ' + respuesta.nom_ape,
+                              title: 'Bienvenido ' + respuesta.nom_ape.toUpperCase(),
                               html: 'Será redirigido a su interfaz en 3 segundos',
                               timer: 3000,
                               timerProgressBar: true,
@@ -55,7 +55,7 @@ jQuery( document ).ready(function() {
                               if (result.dismiss === Swal.DismissReason.timer) {
                                 console.log('I was closed by the timer');
 
-                                $.post('user/index.html', {dni}, (response2) => {
+                                $.post('user/index.php', {dni}, (response2) => {
                                 console.log(response2);
                                 
                                 window.location.href="user/index.php?user=" + respuesta.nom_ape;

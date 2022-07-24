@@ -1,12 +1,12 @@
 <?php
 include ('../connection.php');
-$name = $_GET['name'];
-$query = "SELECT * FROM users WHERE nombre = '$name'";
+$name = $_GET['user'];
+$query = "SELECT * FROM users WHERE nom_ape = '$name'";
 $sqlEX = mysqli_query($connection, $query);
 if($sqlEX){
     $row = mysqli_fetch_assoc($sqlEX);
     $dni = $row['dni'];
-    echo $dni;
+    
 }
 ?>
 
@@ -44,7 +44,7 @@ if($sqlEX){
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Bienvenido</div>
+                <div class="masthead-subheading">Bienvenido <?php echo " " . strtoupper($name) ?></div>
                 <div class="masthead-heading text-uppercase">Sistema de prestado de herramientas</div>
             </div>
         </header>
