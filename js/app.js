@@ -58,7 +58,7 @@ jQuery( document ).ready(function() {
                                 $.post('user/index.html', {dni}, (response2) => {
                                 console.log(response2);
                                 
-                                window.location.href="user/index.html?dni=" + respuesta.dni ;
+                                window.location.href="user/index.html?name=" + respuesta.nom_ape;
 
                               });
 
