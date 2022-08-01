@@ -1,9 +1,12 @@
 <?php
 include ('../connection.php');
+session_start();
+error_reporting(0);
 $name = $_GET['user'];
 $query = "SELECT * FROM users WHERE nom_ape = '$name'";
 $sqlEX = mysqli_query($connection, $query);
 if($sqlEX){
+    
     $row = mysqli_fetch_assoc($sqlEX);
     $dni = $row['dni'];
     
@@ -34,8 +37,8 @@ if($sqlEX){
            <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="prestarHerramientas.html">Prestar herramientas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="prestamos.html">Devolucion de herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Prestar herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolucion de herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="modules/administrar.php">Administrar stock</a></li>
                     </ul>
                 </div>
@@ -59,7 +62,7 @@ if($sqlEX){
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="prestarHerramientas.html">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="prestarHerramientas.php">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -73,7 +76,7 @@ if($sqlEX){
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="prestamos.html">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="prestamos.php">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,15 +30,15 @@
     <div class="text-center">
       <ul class="nav nav-tabs bg-light pt-2">
         <li class="nav-item">
-            <a class="nav-link " aria-current="true" href="index.html" >Inicio</a>
+            <a class="nav-link " aria-current="true" href="index.php" >Inicio</a>
         </li>
 
         <li class="nav-item" >
-            <a class="nav-link" href="#" >Inventario</a>
+            <a class="nav-link" href="prestarHerramientas.php" >Inventario</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active" href="prestamos.html" >Prestamos</a>
+            <a class="nav-link active" href="prestamos.php" >Prestamos</a>
         </li>
     </ul>
        

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,13 +18,13 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container">
-                <a class="navbar-brand text-white" href="index.html">El Bodegon</a>
+                <a class="navbar-brand text-white" href="index.php">El Bodegon</a>
             </div>
         </nav>
 
         <ul class="nav nav-tabs bg-light pt-2">
             <li class="nav-item">
-                <a class="nav-link " aria-current="true" href="index.html" >Inicio</a>
+                <a class="nav-link " aria-current="true" href="index.php" >Inicio</a>
             </li>
 
             <li class="nav-item" >
@@ -29,7 +32,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="prestamos.html" >Prestamos</a>
+                <a class="nav-link" href="prestamos.php" >Prestamos</a>
             </li>
         </ul>
 

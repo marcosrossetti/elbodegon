@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,7 +26,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-md">
-            <a class="navbar-brand" style="color: #fff; " href="index.html">El Bodegon</a>
+            <a class="navbar-brand" style="color: #fff; " href="index.php">El Bodegon</a>
         </div>
     </nav>
   
@@ -32,11 +35,11 @@
           <ul class="nav nav-tabs card-header-tabs">
 
             <li class="nav-item">
-              <a class="nav-link " aria-current="true" href="index.html" >Inicio</a>
+              <a class="nav-link " aria-current="true" href="index.php" >Inicio</a>
             </li>
 
             <li class="nav-item" >
-              <a class="nav-link active" href="#" >Inventario</a>
+              <a class="nav-link active" href="prestarHerramientas.php" >Inventario</a>
             </li>
 
             <li class="nav-item">
