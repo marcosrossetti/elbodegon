@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="error">
-                <form id="form-login" action="" method="POST">
+                <form id="form-login" action="modules/loginMod.php" method="POST">
                   <p>Ingrese su llave de seguridad o DNI</p>
 
                   <div class="form-outline mb-4">

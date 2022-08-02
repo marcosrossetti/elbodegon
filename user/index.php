@@ -1,16 +1,8 @@
 <?php
 include ('../connection.php');
-session_start();
-error_reporting(0);
-$name = $_GET['user'];
-$query = "SELECT * FROM users WHERE nom_ape = '$name'";
-$sqlEX = mysqli_query($connection, $query);
-if($sqlEX){
-    
-    $row = mysqli_fetch_assoc($sqlEX);
-    $dni = $row['dni'];
-    
-}
+include('../modules/funciones.php');
+destroyUser();
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +31,7 @@ if($sqlEX){
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Prestar herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolucion de herramientas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="administrar/index.html">Administrar stock</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Administrar stock</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +39,7 @@ if($sqlEX){
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Bienvenido <?php echo " " . strtoupper($name) ?></div>
+                <div class="masthead-subheading">Bienvenido</div>
                 <div class="masthead-heading text-uppercase">Sistema de prestado de herramientas</div>
             </div>
         </header>

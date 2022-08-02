@@ -1,5 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<body>
+  
+</body>
+</html>
+
 <?php
 include("../connection.php");
+session_start();
 
 $clave = $_POST['password'];
 
@@ -20,17 +36,9 @@ $query = "SELECT * FROM `users` WHERE `dni` = '$clave' OR `password` = '$clave' 
     
     
 
-     $json2 = array();
+     
 
-     $json2[]=array(
-      'nom_ape'=>$_SESSION['nom_ape'],
-      'dni'=>$_SESSION['dni']
-     );
-
-    $json_string2 = json_encode($json2[0]);
-    echo $json_string2;
-
-    // header("location: ../user.php");
+    header("location: ../user/index.php");
 
 
    
@@ -39,14 +47,13 @@ $query = "SELECT * FROM `users` WHERE `dni` = '$clave' OR `password` = '$clave' 
   }
   else if($row['dni'] != $clave || $row['password'] != $clave || $clave == ""){
     
-    $json3 = array();
-
-     $json3[]=array(
-      'error'=>$error
-     );
-
-    $json_string3 = json_encode($json3[0]);
-    echo $json_string3;
+    echo' <script> swal({
+      title: "Credenciales incorrectas",
+      text: "",
+      icon: "error"
+  }).then(function() {
+      window.location = "../index.php";
+  }); </script>';
     
 
   }
