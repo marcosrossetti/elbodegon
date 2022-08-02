@@ -39,7 +39,7 @@ if($sqlEX){
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Prestar herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolucion de herramientas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="modules/administrar.php">Administrar stock</a></li>
+                        <li class="nav-item"><a class="nav-link" href="administrar/index.html">Administrar stock</a></li>
                     </ul>
                 </div>
             </div>
