@@ -32,6 +32,7 @@ destroyUser();
                         <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Prestar herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolucion de herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Administrar stock</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../modules/logout.php">logout</a></li>
                     </ul>
                 </div>
             </div>
