@@ -41,98 +41,42 @@ session_start();
             <div class="row">
                 <div class="col-lg-9 mt-5">
                     <div class="row">
+                        
+                        <?php
+                        include("db.php");
+                        $sql = "SELECT * FROM `herramientas` WHERE 1";
+                        $sqlEX = mysqli_query($connection,$sql);
+                        $row = mysqli_fetch_array($sqlEX);
+
+                        foreach($sqlEX as $row){
+                            $nombre = $row['nombre'];
+                            $cantidad = $row['cant'];
+                            $url_img = $row['url_img'];
+                            $id = $row['id'];
+
+
+
+                        echo '
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/010/857/products/amoladora-tc-ag-115-750-11-44ce85cdafd7e8c55916020950106124-1024-1024.png" alt="..." /></a>
+
+                                <a href="#"><img class="card-img-top img-auto" src="'.$url_img.'" alt="..." /></a>
                                 <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Amoladora angular</h5>
-                                    <p>Cantidad x2</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
+
+                                    <h5 class="card-title fw-bold">'.$nombre.'</h5>
+
+                                    <p>Cantidad '.$cantidad.'</p>
+                                    <a class="btn btn-outline-dark mt-auto" href="modules/prestarMod.php?id='.$id.'">Agregar</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://d2r9epyceweg5n.cloudfront.net/stores/001/131/279/products/escofina-11-f5856b83722932c75915958809957785-640-0.jpg" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Escofina</h5>
-                                    <p>Cantidad x4</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Destornillador Phillips PH-1</h5>
-                                    <p>Cantidad x1</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Papel de lija Gr-600</h5>
-                                    <p>Cantidad x7</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Sargento</h5>
-                                    <p>Cantidad x9</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Pinza de punta</h5>
-                                    <p>Cantidad x1</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Martillo</h5>
-                                    <p>Cantidad x11</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Cable RJ-45</h5>
-                                    <p>Cantidad x9</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top img-auto" src="https://via.placeholder.com/700x400" alt="..." /></a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Circuito integrado L293d</h5>
-                                    <p>Cantidad x2</p>
-                                    <a class="btn btn-outline-dark mt-auto" href="#">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
+                        ';
+                    }
+                        ?>
+
                     </div>
                 </div>
+
                 <div class="col-lg-3">
                     <h1 class="my-4 text-center">Seleccionado</h1>
                     <ul class="list-group">
