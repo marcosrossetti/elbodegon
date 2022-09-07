@@ -181,9 +181,9 @@ session_start();
 
                 <div class="row g-0 mb-3">
                             <div class="btn-group btn-group-sm" role="group" aria-label="btnCantidad"> <!-- col-3 -->
-                                <button type="button" onclick="$('.cantidad${id}').html() <= 1 ? 1 : $('.cantidad${id}').html(parseInt($('.cantidad${id}').html()) - 1);" class="btn btn-dark"><i class="fas fa-minus"></i></button>
-                                <button type="button" class="btn btn-dark cantidad${id}" id="cantidadP">1</button>
-                                <button type="button" onclick="$('.cantidad${id}').html(parseInt($('.cantidad${id}').html()) + 1);" class="btn btn-dark"><i class="fas fa-plus"></i></button>
+                                <button id="menos" type="button" onclick="$('.cantidad${id}').html() <= 1 ? 1 : $('.cantidad${id}').html(parseInt($('.cantidad${id}').html()) - 1);" class="btn btn-dark"><i class="fas fa-minus"></i></button>
+                                <button type="button" class="btn btn-dark cantidad${id}" id="cantidadP" value="5">1</button>
+                                <button type="button" id="mas" tas="${id}" onclick="$('.cantidad${id}').html(parseInt($('.cantidad${id}').html()) + 1);" class="btn btn-dark"><i class="fas fa-plus"></i></button>
                                 <button type="button" class="btn btn-danger" onclick="eliminarElemento(${id})"><i class="fas fa-times"></i></button>
                             </div>
                         </div>
@@ -193,11 +193,23 @@ session_start();
 
                 
                 contenidos.push(contenido);
-                
                 $("#contCont").html(contenidos);
-                let cantidadP = getElementById("cantidadP").value;
 
+                $(document).on('click', '#mas',function () {
+                let cantidadP = $("#cantidadP", this).text();
                 console.log(cantidadP);
+                
+
+             });
+
+                $(document).on('click', '#menos',function () {
+                let cantidadP = $("#cantidadP").text();
+                console.log(cantidadP);
+                
+
+             });
+                
+                
 
                 }
 
@@ -228,6 +240,9 @@ session_start();
 
 
              }
+
+
+
 
 
              // $(document).on('click', '#',function () {
