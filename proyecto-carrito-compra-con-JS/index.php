@@ -48,14 +48,13 @@
                             <img class="item-image" src="'.$img.'">
 
                             <div class="item-details">
-                                <!-- <h4 class="item-price">9.99€</h4> -->
                                 <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
                             </div>
                         </div>
                     </div>
                             ';
                         }
-                                            ?>
+                    ?>
                     
                 </div>
             </div>
@@ -90,11 +89,9 @@
                     <div class="shopping-cart-total d-flex align-items-center">
                         <p class="mb-0">Total</p>
                         <p class="ml-4 mb-0 shoppingCartTotal">0</p>
-                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                            data-delay="2000">
+                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
                             <div class="toast-header">
-                                <span>✅</span>
-                                <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                                <strong class="mr-auto text-secondary">Elemento en el carrito</strong>
                                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
