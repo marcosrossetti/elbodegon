@@ -26,7 +26,7 @@ session_start();
     include('modules/header.php');
     ?>
 
-    <div class="text-center">
+    <div class="text-center vh-100">
       <ul class="nav nav-tabs bg-light pt-2">
         <li class="nav-item" >
             <a class="nav-link" href="prestarHerramientas.php" >Inventario</a>

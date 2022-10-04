@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2022 a las 22:12:31
+-- Tiempo de generación: 04-10-2022 a las 23:02:45
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categorias` (
-  `nombre` varchar(50) NOT NULL COMMENT 'nombre de la categoria',
-  `id_cat` int(2) NOT NULL COMMENT 'clave rel entre la herramienta y la categoria'
+  `nombre` varchar(60) NOT NULL,
+  `id_cat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -39,14 +39,22 @@ CREATE TABLE `categorias` (
 --
 
 CREATE TABLE `herramientas` (
-  `nombre` text NOT NULL COMMENT 'nombre de la herramienta ',
-  `cant` int(11) NOT NULL COMMENT 'conteo de cantidad de stock',
-  `estado` tinyint(1) NOT NULL COMMENT 'habilitado o deshabilitado',
-  `foto` varchar(11) NOT NULL COMMENT 'imagen desmostrativa',
-  `devolucion` int(1) NOT NULL COMMENT 'estado de la devolucion del elemento prestado',
-  `id` int(11) NOT NULL COMMENT 'identificador de elemento unico',
-  `id_cat` int(2) NOT NULL COMMENT 'identificador de categoria primaria del elemento unico'
+  `nombre` varchar(60) NOT NULL,
+  `cant` int(11) NOT NULL,
+  `estado` int(1) NOT NULL,
+  `url_img` varchar(999) NOT NULL,
+  `devolucion` int(2) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_cat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `herramientas`
+--
+
+INSERT INTO `herramientas` (`nombre`, `cant`, `estado`, `url_img`, `devolucion`, `id`, `id_cat`) VALUES
+('Parrilla', 65, 0, 'https://http2.mlstatic.com/D_NQ_NP_786287-MLA41375695378_042020-O.webp', 0, 1, 1),
+('Netbook g5', 35, 0, 'https://http2.mlstatic.com/D_NQ_NP_817020-MLA31045595837_062019-O.jpg', 0, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -55,17 +63,17 @@ CREATE TABLE `herramientas` (
 --
 
 CREATE TABLE `retiros` (
-  `id` int(11) NOT NULL COMMENT 'identificador de retiro',
-  `dni` varchar(12) NOT NULL COMMENT 'dni del alumno que retira',
-  `nom_ape` text NOT NULL COMMENT 'nombre y apellido del beneficiario del prestamo del elemento',
-  `grupo` int(11) NOT NULL COMMENT 'grupo del alumno al que se presta',
-  `curso` varchar(11) NOT NULL COMMENT 'curso del alumno al que se presta',
-  `id_herramienta` varchar(11) NOT NULL COMMENT 'identificador de herramienta u elemento unico',
-  `tipo` text NOT NULL COMMENT 'tipo de elemento a retirar',
-  `cant_ret` int(11) NOT NULL COMMENT 'cantidad de elementos retirados',
-  `estado` tinyint(1) NOT NULL COMMENT 'estado del prestado',
-  `fecha_ret` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'fecha del retiro del prestado',
-  `fecha_dev` date NOT NULL COMMENT 'fecha de devolucion del prestado'
+  `id` int(11) NOT NULL,
+  `dni` varchar(12) NOT NULL,
+  `nom_ape` text NOT NULL,
+  `grupo` varchar(4) NOT NULL,
+  `curso` varchar(4) NOT NULL,
+  `id_herramienta` int(11) NOT NULL,
+  `tipo` int(2) NOT NULL,
+  `cant_ret` int(11) NOT NULL,
+  `estado` int(2) NOT NULL,
+  `fecha_ret` date NOT NULL,
+  `fecha_dev` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -93,17 +101,10 @@ INSERT INTO `users` (`dni`, `password`, `nom_ape`) VALUES
 --
 
 --
--- Indices de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id_cat`);
-
---
 -- Indices de la tabla `herramientas`
 --
 ALTER TABLE `herramientas`
-  ADD PRIMARY KEY (`id_cat`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `retiros`
@@ -122,20 +123,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `herramientas`
+--
+ALTER TABLE `herramientas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `retiros`
 --
 ALTER TABLE `retiros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador de retiro';
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `herramientas`
---
-ALTER TABLE `herramientas`
-  ADD CONSTRAINT `herramientas_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `categorias` (`id_cat`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

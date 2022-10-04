@@ -32,7 +32,7 @@ session_start();
         </ul>
 
         <!-- Page Content-->
-        <div class="container">
+        <div class="container vh-100">
             <div class="row">
                 <div class="col-lg-9 mt-5">
                     <div class="row">
