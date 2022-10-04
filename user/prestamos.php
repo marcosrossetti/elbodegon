@@ -22,17 +22,12 @@ session_start();
       };
     </style>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-      <div class="container">
-          <a class="navbar-brand text-white" href="index.html">El Bodegon</a>
-      </div>
-    </nav>
+    <?php
+    include('modules/header.php');
+    ?>
+
     <div class="text-center">
       <ul class="nav nav-tabs bg-light pt-2">
-        <li class="nav-item">
-            <a class="nav-link " aria-current="true" href="index.php" >Inicio</a>
-        </li>
-
         <li class="nav-item" >
             <a class="nav-link" href="prestarHerramientas.php" >Inventario</a>
         </li>
@@ -51,8 +46,8 @@ session_start();
                     <th scope="col">Grupo</th>
                     <th scope="col">Año</th>
                     <th scope="col">Herramienta/s</th>    
-                    <th scope="col">Fecha de R</th>
-                    <th scope="col">opciones</th>
+                    <th scope="col">Retirado</th>
+                    <th scope="col">Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -140,6 +135,10 @@ session_start();
     </div>
   </div>
 </div>
+
+    <?php
+        include('modules/footer.php');
+    ?>
 
 
 

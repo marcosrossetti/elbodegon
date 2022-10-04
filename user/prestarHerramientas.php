@@ -16,17 +16,12 @@ session_start();
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container">
-                <a class="navbar-brand text-white" href="index.php">El Bodegon</a>
-            </div>
-        </nav>
+        <?php
+        include('modules/header.php');
+        ?>
+    
 
         <ul class="nav nav-tabs bg-light pt-2">
-            <li class="nav-item">
-                <a class="nav-link " aria-current="true" href="index.php" >Inicio</a>
-            </li>
-
             <li class="nav-item" >
                 <a class="nav-link active" href="#" >Inventario</a>
             </li>
@@ -124,12 +119,11 @@ session_start();
             </div>
         </div>
         <!-- END MODAL COMPRA -->
-
-        <footer class="py-5 bg-black">
-            <div class="container">
-                <p class="m-0 text-center text-white small">Prestado de herramientas &copy; 2022</p>
-            </div>
-        </footer>
+        
+        <?php
+        include('modules/footer.php');
+        ?>
+        
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

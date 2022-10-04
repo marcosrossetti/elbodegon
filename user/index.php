@@ -25,14 +25,13 @@ destroyUser();
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black-25" id="mainNav">
            <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Prestar herramientas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolucion de herramientas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Administrar stock</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../modules/logout.php">logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Administrar herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolución de herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../modules/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
