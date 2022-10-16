@@ -22,12 +22,16 @@ session_start();
     
 
         <ul class="nav nav-tabs bg-light pt-2">
-            <li class="nav-item" >
-                <a class="nav-link active" href="#" >Inventario</a>
+            <li class="nav-item">
+                <a class="nav-link" href="prestarHerramientas.php">Prestar</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="prestamos.php" >Prestamos</a>
+                <a class="nav-link" href="prestamos.php" >Devolución</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Administrar</a>
             </li>
         </ul>
 
@@ -35,8 +39,37 @@ session_start();
         <div class="container vh-100">
             <div class="row">
                 <div class="mt-3">
-                    <button class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#agregarModal">Agregar Producto <i class="fas fa-plus fa-sm"></i></button>
+                    <button class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#agregarModal">Agregar Herramienta <i class="fas fa-plus fa-sm"></i></button>
                     <div class="row">
+                        <?php
+                            include("db.php");
+
+                            $query = "SELECT * FROM `herramientas` WHERE 1";
+                            $result = mysqli_query($connection,$query);
+                            $row = mysqli_fetch_array($result);
+
+                            foreach($result as $row) {
+                                $nombre = $row['nombre'];
+                                $cantidad = $row['cant'];
+                                $url_img = $row['url_img'];
+                                $id = $row['id'];
+
+                                echo'
+                                    <div class="col-lg-3 col-md-6 mb-4">
+                                        <div class="item card h-100">
+            
+                                            <img class="card-img-top img-auto item-image" src="'.$url_img.'" alt="'.$url_img.'" />
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title fw-bold item-title">'.$nombre.'</h5>
+                                                <p>Cantidad '.$cantidad.'</p>
+                                                <a class="btn btn-outline-dark mt-auto item-button">Editar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ';
+                            }
+                        ?>
+                        <!-- 1
                         <div class="col-lg-3 col-md-6 mb-4">
                             <div class="item card h-100">
 
@@ -48,97 +81,38 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="item card h-100">
-
-                                <img class="card-img-top img-auto item-image" src="https://www.discordianos.com/uploads/monthly_2020_10/amongus-impostor.png.c1d0b40abe30fb087a570c84c81740a4.png" alt="..." />
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold item-title">Amogu</h5>
-                                    <p>Cantidad 9</p>
-                                    <a class="btn btn-outline-dark mt-auto item-button addToCart">Editar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="item card h-100">
-
-                                <img class="card-img-top img-auto item-image" src="https://i0.wp.com/imagenesparapeques.com/wp-content/uploads/2021/01/Imagenes-Among-Us-naranja.png?fit=874%2C960&ssl=1" alt="..." />
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold item-title">A Mongus</h5>
-                                    <p>Cantidad 9</p>
-                                    <a class="btn btn-outline-dark mt-auto item-button addToCart">Editar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="item card h-100">
-
-                                <img class="card-img-top img-auto item-image" src="http://d3ugyf2ht6aenh.cloudfront.net/stores/001/019/373/products/2145101-2c736d9df6afdea59716286989994643-480-0.jpg" alt="..." />
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold item-title">Excavadora CAT x-674fs</h5>
-                                    <p>Cantidad 9</p>
-                                    <a class="btn btn-outline-dark mt-auto item-button addToCart">Editar</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <?php
-                        /*
-                        include("db.php");
-                        $sql = "SELECT * FROM `herramientas` WHERE 1";
-                        $sqlEX = mysqli_query($connection,$sql);
-                        $row = mysqli_fetch_array($sqlEX);
-
-                        foreach($sqlEX as $row){
-                            $nombre = $row['nombre'];
-                            $cantidad = $row['cant'];
-                            $url_img = $row['url_img'];
-                            $id = $row['id'];
-
-
-
-                        echo '
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="item card h-100">
-
-                                <img class="card-img-top img-auto item-image" src="'.$url_img.'" alt="..." />
-                                <div class="card-body text-center">
-
-                                    <h5 class="card-title fw-bold item-title">'.$nombre.'</h5>
-
-                                    <p>Cantidad '.$cantidad.'</p>
-                                    <a class="btn btn-outline-dark mt-auto item-button addToCart">Agregar</a>
-                                </div>
-                            </div>
-                        </div>
-                        ';
-                    }
-                    */
-                        ?>
-
+                        /1 -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- START MODAL COMPRA -->
+        <!-- Modal agregar -->
         <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="agregarModalLabel">Gracias por su compra</h5>
+                        <h5 class="modal-title" id="agregarModalLabel">Agregar Herramienta</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Pronto recibirá su pedido</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <form action="" method="post">
+                            <label for="nombreProducto" class="form-label">Nombre</label>
+                            <input type="text" class="form-control mb-3" id="nombreProducto" required>
+                            <label for="cantidadProducto" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control mb-3" min="1" id="cantidadProducto" required>
+                            <label for="imagenProducto" class="form-label">Imagen (opcional)</label>
+                            <input type="file" class="form-control mb-3" id="imagenProducto">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- END MODAL COMPRA -->
+        <!-- /Modal agregar -->
         
         <?php
         include('modules/footer.php');

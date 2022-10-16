@@ -22,12 +22,16 @@ session_start();
     
 
         <ul class="nav nav-tabs bg-light pt-2">
-            <li class="nav-item" >
-                <a class="nav-link active" href="#" >Inventario</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Prestar</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="prestamos.php" >Prestamos</a>
+                <a class="nav-link" href="prestamos.php">Devolución</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="administrar.php">Administrar</a>
             </li>
         </ul>
 

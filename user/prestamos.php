@@ -27,15 +27,19 @@ session_start();
     ?>
 
     <div class="text-center vh-100">
-      <ul class="nav nav-tabs bg-light pt-2">
-        <li class="nav-item" >
-            <a class="nav-link" href="prestarHerramientas.php" >Inventario</a>
-        </li>
+        <ul class="nav nav-tabs bg-light pt-2">
+            <li class="nav-item">
+                <a class="nav-link" href="prestarHerramientas.php">Prestar</a>
+            </li>
 
-        <li class="nav-item">
-            <a class="nav-link active" href="prestamos.php" >Prestamos</a>
-        </li>
-    </ul>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Devolución</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="administrar.php">Administrar</a>
+            </li>
+        </ul>
        
             <table class="table table-striped ">
                 <thead>

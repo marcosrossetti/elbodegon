@@ -29,8 +29,9 @@ destroyUser();
            <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Administrar herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="prestarHerramientas.php">Prestar herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="prestamos.php">Devolución de herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="administrar.php">Administrar herramientas</a></li>
                         <li class="nav-item"><a class="nav-link" href="../modules/logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -75,21 +76,21 @@ destroyUser();
                                 <img class="img-fluid" src="../assets/img/herramientas6.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Devolucion de herramientas</div>                         
+                                <div class="portfolio-caption-heading">Devolución de herramientas</div>                         
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="administrar.php">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
                                 <img class="img-fluid" src="../assets/img/herramientas7.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Administar stock</div>
+                                <div class="portfolio-caption-heading">Administar herramientas</div>
                             </div>
                         </div>
                     </div>
