@@ -91,7 +91,7 @@ session_start();
                     <div class="shopping-cart-total">
                         <label>Total: </label> <label class="shoppingCartTotal">0</label>
                     </div>
-                    <button class="btn btn-success w-100 comprarButton" type="button" data-bs-toggle="modal" data-bs-target="#comprarModal">Enviar</button>
+                    <button class="btn btn-success w-100" type="button" data-bs-toggle="modal" data-bs-target="#comprarModal">Enviar</button>
                     <div class="toast position-fixed bottom-0 end-0 p-3 bg-white" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 11">
                         <div class="toast-header">
                             <strong class="me-auto text-secondary">Elemento en el carrito</strong>
@@ -110,14 +110,24 @@ session_start();
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                        <h5 class="modal-title" id="comprarModalLabel">Completar Formulario</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Pronto recibirá su pedido</p>
+                        <form action="" method="post">
+                        <label for="dniPrestado" class="form-label">DNI</label>
+                        <input type="number" class="form-control mb-3" min="10000000" id="dniPrestado" required>
+                        <label for="nomyapePrestado" class="form-label">Nombre y Apellido</label>
+                        <input type="text" class="form-control mb-3" id="nomyapePrestado" required>
+                        <label for="cursoPrestado" class="form-label">Curso</label>
+                        <input type="text" class="form-control mb-3" id="cursoPrestado" placeholder="Ej: 4C" required>
+                        <label for="grupoPrestado" class="form-label">Grupo</label>
+                        <input type="text" class="form-control mb-3" id="grupoPrestado" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary comprarButton">Enviar</button>
+                        </form>
                     </div>
                 </div>
             </div>

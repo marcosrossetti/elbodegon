@@ -100,6 +100,9 @@ function quantityChanged(event) {
 }
 
 function comprarButtonClicked() {
-  shoppingCartItemsContainer.innerHTML = '';
-  updateShoppingCartTotal();
+  let grupos = document.getElementById('grupoPrestado');
+  if(grupos.value != ''){
+    shoppingCartItemsContainer.innerHTML = '';
+    updateShoppingCartTotal();
+  }
 }
