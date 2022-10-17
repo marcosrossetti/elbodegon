@@ -39,7 +39,7 @@ session_start();
         <div class="container vh-100">
             <div class="row">
                 <div class="mt-3">
-                    <button class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#agregarModal">Agregar Herramienta <i class="fas fa-plus fa-sm"></i></button>
+                    <button class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#agregarModal" id="buttonModal">Agregar Herramienta <i class="fas fa-plus fa-sm"></i></button>
                     <div class="row">
                         <?php
                             include("db.php");
@@ -96,19 +96,23 @@ session_start();
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post">
+                        <form id="agregarModal">
                             <label for="nombreProducto" class="form-label">Nombre</label>
-                            <input type="text" class="form-control mb-3" id="nombreProducto" required>
+                            <input type="text" class="form-control mb-3" id="producto" required>
                             <label for="cantidadProducto" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control mb-3" min="1" id="cantidadProducto" required>
+                            <input type="number" class="form-control mb-3" min="1" id="cantidad" required>
                             <label for="imagenProducto" class="form-label">Imagen (opcional)</label>
-                            <input type="file" class="form-control mb-3" id="imagenProducto">
-                        </div>
-                        <div class="modal-footer">
+                            <input type="text" class="form-control mb-3" id="imagen">
+
+                            <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </form>
+                            <button type="button" id="submit" class="btn btn-primary">Enviar</button>
+                        
                     </div>
+                            </form>
+                        </div>
+
+                        
                 </div>
             </div>
         </div>
@@ -121,6 +125,7 @@ session_start();
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../js/app1.js"></script>
     </body>
 </html>
