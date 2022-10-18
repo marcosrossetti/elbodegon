@@ -101,19 +101,48 @@ $(document).on('click','#editar',function (){
                         
 
                      };
-
-                        console.log(postData);
-
-                        
-        
-                $.post(url, postData, (response) => {
+                     
+                         console.log(postData);
+                         if(postData.producto && postData.cantidad && postData.imagen){
+                            // console.log("pim");
+                            $.post(url, postData, (response) => {
                         const rta = JSON.parse(response);
                             console.log(rta);
                             if(rta == 1){
                                 window.location = "administrar.php";
                             }            
                         console.log(response);
-        });
+                            });
+                         }else{
+                            let timerInterval
+                            Swal.fire({
+                              title: 'Complete todos los datos para seguir!',
+                              html: 'Cerrando en.. 2 Segundos',
+                              timer: 2000,
+                              timerProgressBar: true,
+                              didOpen: () => {
+                                Swal.showLoading()
+                                const b = Swal.getHtmlContainer().querySelector('b')
+                                timerInterval = setInterval(() => {
+                                  b.textContent = Swal.getTimerLeft()
+                                }, 100)
+                              },
+                              willClose: () => {
+                                clearInterval(timerInterval)
+                              }
+                            }).then((result) => {
+                              /* Read more about handling dismissals below */
+                              if (result.dismiss === Swal.DismissReason.timer) {
+                                console.log('I was closed by the timer')
+                              }
+})
+                         }
+                        
+        
+                
+                     
+
+                       
 
         });
                                 

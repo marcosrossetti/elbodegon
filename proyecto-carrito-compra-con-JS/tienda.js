@@ -1,3 +1,5 @@
+
+//buena suerte muchacho total horas desperdiciadas: 987
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
