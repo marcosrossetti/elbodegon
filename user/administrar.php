@@ -62,7 +62,10 @@ session_start();
                                             <div class="card-body text-center">
                                                 <h5 class="card-title fw-bold item-title">'.$nombre.'</h5>
                                                 <p>Cantidad '.$cantidad.'</p>
+                                                
                                                 <button class="btn btn-outline-dark mt-auto item-button" data-id="'.$id.'" id="editar">Editar</button>
+
+                                                <button class="btn btn-outline-danger mt-auto item-button" data-id="'.$id.'" id="eliminar">Eliminar</button>
                                             </div>
                                         </div>
                                     </div>

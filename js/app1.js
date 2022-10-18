@@ -121,3 +121,25 @@ $(document).on('click','#editar',function (){
 
 
 });
+
+//eliminar herramienta
+$(document).on('click','#eliminar',function (){
+    let id = $(this).data('id');
+        console.log(id);
+        const postData = {
+                        id : id
+                     };
+                     const url = "modules/eliminarMod.php";
+
+                        console.log(postData);
+                $.post(url, postData, (response) => {
+                    const rta = JSON.parse(response);
+                    if(rta == 1){
+                                window.location = "administrar.php";
+                            }   
+                    console.log(response);   
+
+                });
+
+
+    });
