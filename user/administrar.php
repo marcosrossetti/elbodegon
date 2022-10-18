@@ -62,26 +62,14 @@ session_start();
                                             <div class="card-body text-center">
                                                 <h5 class="card-title fw-bold item-title">'.$nombre.'</h5>
                                                 <p>Cantidad '.$cantidad.'</p>
-                                                <a class="btn btn-outline-dark mt-auto item-button">Editar</a>
+                                                <button class="btn btn-outline-dark mt-auto item-button" data-id="'.$id.'" id="editar">Editar</button>
                                             </div>
                                         </div>
                                     </div>
                                 ';
                             }
                         ?>
-                        <!-- 1
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="item card h-100">
-
-                                <img class="card-img-top img-auto item-image" src="https://d22fxaf9t8d39k.cloudfront.net/374a13364262e0d88d1af22b44e72abfe3f33e6ba02d77ed1464af542bb3b1fe67397.jpeg" alt="..." />
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold item-title">Amon Gus</h5>
-                                    <p>Cantidad 9</p>
-                                    <a class="btn btn-outline-dark mt-auto item-button addToCart">Editar</a>
-                                </div>
-                            </div>
-                        </div>
-                        /1 -->
+                        
                     </div>
                 </div>
             </div>
@@ -117,7 +105,6 @@ session_start();
             </div>
         </div>
         <!-- /Modal agregar -->
-        
         <?php
         include('modules/footer.php');
         ?>
