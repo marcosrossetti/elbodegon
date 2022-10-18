@@ -97,12 +97,10 @@ destroyUser();
                     <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                     </div>
                 </section>
-                <!-- Footer-->
-                <footer class="py-5 bg-black">
-                    <div class="container">
-                        <p class="m-0 text-center text-white small">Prestado de herramientas &copy; 2022</p>
-                    </div>
-                </footer>
+            <!-- Footer-->
+            <?php
+                include('modules/footer.php');
+            ?>
             </body>
             
             </html>
