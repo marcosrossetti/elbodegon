@@ -10,7 +10,6 @@ $(document).on('click','#buttonModal',function (){
                         // console.log(foto);
 
                      const postData = {
-                        imagen : $("#imagen").val(),
                         producto : $("#producto").val(),
                         cantidad : $("#cantidad").val()
                         
@@ -66,9 +65,6 @@ $(document).on('click','#editar',function (){
                             <label for="cantidadProducto" class="form-label">Nueva Cantidad:</label>
                             <input type="number" class="form-control mb-3" min="1" id="nuevaCantidad" required>
                             <br>
-                            <label for="cantidadProducto" class="form-label">Nueva Imagen</label>
-                            <input type="text" class="form-control mb-3" min="1" id="nuevaImagen" required>
-                            
                             
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -96,14 +92,13 @@ $(document).on('click','#editar',function (){
                      const postData = {
                         producto : $("#nuevoNombreProducto").val(),
                         cantidad : $("#nuevaCantidad").val(),
-                        imagen : $("#nuevaImagen").val(),
                         id: id
                         
 
                      };
                      
                          console.log(postData);
-                         if(postData.producto && postData.cantidad && postData.imagen){
+                         if(postData.producto && postData.cantidad){
                             // console.log("pim");
                             $.post(url, postData, (response) => {
                         const rta = JSON.parse(response);
