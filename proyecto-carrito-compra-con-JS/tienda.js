@@ -1,5 +1,3 @@
-
-//buena suerte muchacho total horas desperdiciadas: 987
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
@@ -17,13 +15,12 @@ function addToCartClicked(event) {
   const item = button.closest('.item');
 
   const itemTitle = item.querySelector('.item-title').textContent;
-  
-  const itemImage = item.querySelector('.item-image').src;
+  const itemId = item.querySelector('.item-title').id;
 
-  addItemToShoppingCart(itemTitle, itemImage);
+  addItemToShoppingCart(itemTitle, itemId);
 }
 
-function addItemToShoppingCart(itemTitle, itemImage) {
+function addItemToShoppingCart(itemTitle, itemId) {
   const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
     'shoppingCartItemTitle'
   );
@@ -50,7 +47,7 @@ function addItemToShoppingCart(itemTitle, itemImage) {
 
         <div class="row g-0 mb-3">
             <div class="btn-group btn-group-sm shopping-cart-quantity"> <!-- col-3 -->
-                <input type="number" class="btn btn-dark shopping-cart-quantity-input shoppingCartItemQuantity" value="1">
+                <input type="number" class="btn btn-dark shopping-cart-quantity-input shoppingCartItemQuantity"  id="${itemId}" value="1">
                 <button type="button" class="btn btn-danger buttonDelete"><i class="fas fa-times"></i></button>
             </div>
         </div>
@@ -89,6 +86,25 @@ function updateShoppingCartTotal() {
   shoppingCartTotal.innerHTML = `${total.toFixed(2)} cantidades`;
 }
 
+function updateShoppingCartTotalEnvioDatos() {
+  let total = 0;
+  const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
+
+  const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
+
+  shoppingCartItems.forEach((shoppingCartItem) => {
+    
+    const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
+      '.shoppingCartItemQuantity'
+    );
+    const shoppingCartItemQuantity = Number(
+      shoppingCartItemQuantityElement.value
+    );
+    total = total + shoppingCartItemQuantity;
+  });
+  shoppingCartTotal.innerHTML = `${total.toFixed(2)} cantidades`;
+}
+
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
   buttonClicked.closest('.shoppingCartItem').remove();
@@ -101,9 +117,48 @@ function quantityChanged(event) {
   updateShoppingCartTotal();
 }
 
+//enviar datos :D
 function comprarButtonClicked() {
   let grupos = document.getElementById('grupoPrestado');
+
   if(grupos.value != ''){
+
+    var myArray = [];
+    $(".shoppingCartItemQuantity").each(function(){
+      var ArrayHerramientas = {
+        id:$(this).attr("id"),
+        cantidad: $(this).val()
+      };
+      myArray.push(ArrayHerramientas);
+      //$(this).val()
+    });
+    
+    var herramientas = [];
+    var totalHerramientas = [];
+    myArray.forEach(function(element){
+
+      herramientas.push(element.id);
+      totalHerramientas.push(element.cantidad);
+    });
+    console.log(totalHerramientas);
+    console.log(herramientas);
+
+    $.ajax({
+      url:"../proyecto-carrito-compra-con-JS/envioPrestamos.php",
+      type:"POST",
+      data:{ 
+      dniPrestado: $("#dniPrestado").val(),
+      nomyapePrestado: $("#nomyapePrestado").val(),
+      cursoPrestado: $("#cursoPrestado").val(),
+      grupo: $("#grupoPrestado").val(),
+      idHerramientas: herramientas,
+      numbHerramientras: totalHerramientas},
+      success: function(response) {
+        console.log(response);
+        console.log(totalHerramientas);
+      }
+    });
+
     shoppingCartItemsContainer.innerHTML = '';
     updateShoppingCartTotal();
   }
