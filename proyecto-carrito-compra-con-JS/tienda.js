@@ -119,10 +119,14 @@ function quantityChanged(event) {
 
 //enviar datos :D
 function comprarButtonClicked() {
-  let grupos = document.getElementById('grupoPrestado');
+  let validar = {
+    dni: document.getElementById('dniPrestado'),
+    nya: document.getElementById('nomyapePrestado'),
+    curso: document.getElementById('cursoPrestado'),
+    grupo: document.getElementById('grupoPrestado')
+  }
 
-  if(grupos.value != ''){
-
+  if(validar.dni.value!= '' && validar.nya.value!= '' && validar.curso.value!= '' && validar.grupo.value!= ''){
     var myArray = [];
     $(".shoppingCartItemQuantity").each(function(){
       var ArrayHerramientas = {

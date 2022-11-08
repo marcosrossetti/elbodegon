@@ -3,33 +3,33 @@
 console.log("Jquery is Working");
 $(document).on('click','#buttonModal',function (){
 
-                        
-                    $(document).on('click','#submit',function (){
-                        const url = "modules/administrarMod.php";
-                        
-                        // console.log(foto);
-
-                     const postData = {
-                        producto : $("#producto").val(),
-                        cantidad : $("#cantidad").val()
-                        
-
-                     };
-
-                        console.log(postData);
-
-                        
+    $(document).on('click','#submit',function (){
+        const url = "modules/administrarMod.php";
         
-                $.post(url, postData, (response) => {
-                        const rta = JSON.parse(response);
-                            console.log(rta);
-                            if(rta == 1){
-                                window.location = "administrar.php";
-                            }            
-        });
-                    });
+        // console.log(foto);
 
-		}); 
+        const postData = {
+            producto : $("#producto").val(),
+            cantidad : $("#cantidad").val()
+            
+
+        };
+
+        console.log(postData);
+
+        
+        if(postData.producto != '' && postData.cantidad != ''){
+            $.post(url, postData, (response) => {
+                const rta = JSON.parse(response);
+                console.log(rta);
+                if(rta == 1){
+                    window.location = "administrar.php";
+                }            
+            });
+        }
+    });
+
+}); 
 
 //editar herramienta
 $(document).on('click','#editar',function (){
@@ -56,14 +56,10 @@ $(document).on('click','#editar',function (){
                     <div class="modal-body">
                         <form id="editarModal">
                             <img class="card-img-top img-auto item-image" src= "${rta.img}">
-                            <label for="nombreProducto" class="form-label">Nombre Del Producto: ${rta.nombre}</label>
-                            <br>
                             <label for="nombreProducto" class="form-label">Nuevo Nombre:</label>
-                            <input type="text" class="form-control mb-3" id="nuevoNombreProducto" required>
-                            <label for="cantidadProducto" class="form-label">Cantidad disponible: ${rta.cantidad}</label>
-                            <br>
+                            <input type="text" class="form-control mb-3" id="nuevoNombreProducto" value="${rta.nombre}" required>
                             <label for="cantidadProducto" class="form-label">Nueva Cantidad:</label>
-                            <input type="number" class="form-control mb-3" min="1" id="nuevaCantidad" required>
+                            <input type="number" class="form-control mb-3" min="1" id="nuevaCantidad" value="${rta.cantidad}" required>
                             <br>
                             
                             <div class="modal-footer">
