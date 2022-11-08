@@ -10,9 +10,8 @@ $(document).on('click','#buttonModal',function (){
 
         const postData = {
             producto : $("#producto").val(),
-            cantidad : $("#cantidad").val()
-            
-
+            cantidad : $("#cantidad").val(),
+            imagen : $("#imagen").val()
         };
 
         console.log(postData);
