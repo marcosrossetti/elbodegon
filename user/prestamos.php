@@ -44,40 +44,61 @@ session_start();
             <table class="table table-striped ">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Dni</th>
                     <th scope="col">Nombre Apellido</th>
                     <th scope="col">Grupo</th>
                     <th scope="col">Año</th>
                     <th scope="col">Herramienta/s</th>    
                     <th scope="col">Retirado</th>
-                    <th scope="col">Opciones</th>
+                    <th scope="col">Fecha de Prestamo</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>44935241</td>
-                    <td>Tomas Alcuri</td>
-                    <td>710</td>
-                    <td>7mo</td>
+
+                  <?php
+                  include("../connection.php");
+                  $sql = "SELECT * FROM `retiros` WHERE `estado` = 1";
+                  $sqlEX = mysqli_query($connection, $sql);
+                  $row = mysqli_fetch_array($sqlEX);
+
+                  foreach($sqlEX as $row){
+
+                  $id = $row['id'];  
+                  $dni = $row['dni'];
+                  $nomApe = $row['nom_ape'];
+                  $grupo = $row['grupo'];
+                  $año = $row['curso'];
+                  $herramienta = $row['id_herramienta'];
+                  $estado = $row['estado'];
+                  $fechaR = $row['fecha_ret'];
+
+                  if($estado = 1){
+                    $retirado = "FUE RETIRADO";
+                  
+
+                 echo '
+                 <tr>
+                    <th scope="row">'.$id.'</th>
+                    <td>'.$dni.'</td>
+                    <td>'.$nomApe.'</td>
+                    <td>'.$grupo.'</td>
+                    <td>'.$año.'</td>
+                    <td>'.$retirado.'</td>
+                    <td>'.$fechaR.'</td>
+
                     <td><button  type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Examinar</button></td>
-                    <td>27/06/2022</td>
                     <td>
                       <button type="button" class="btn btn-success">Entrego</button>
-                      <button type="button" class="btn btn-danger">Mandar Alerta</button>
                     </td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>  </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>  
+
+                 ';
+                 }
+                }
+                  ?>
+
+                  
                 </tbody>
               </table>
          
@@ -94,42 +115,35 @@ session_start();
       </div>
       <div class="modal-body">
         <div class="row row-cols-1 row-cols-md-2 g-4">
+
+          <?php
+          include("../connection.php");
+
+          $sql = "SELECT * FROM `herramientas` WHERE `id` = $herramienta";
+          $sqlEX = mysqli_query($connection, $sql);
+          $row = mysqli_fetch_array($sqlEX);
+          foreach($sqlEX as $row){
+          $nombre = $row['nombre'];
+          $cantidad = $row['cant'];
+          $url_img = $row['url_img'];
+          
+          echo '
           <div class="col">
             <div class="card">
-              <img src="img/pinza.jpg" class="card-img-top" alt="...">
+              <img src="'.$url_img.'" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Pinza</h5>
-                <p class="card-text">Cantidad : 2</p>
+                <h5 class="card-title">'.$nombre.'</h5>
+                <p class="card-text">'.$cantidad.'</p>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/destornillador.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Destornillador</h5>
-                <p class="card-text">Cantidad : 1</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/pala.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Pala</h5>
-                <p class="card-text">Cantidad : 1</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <img src="img/Sierra.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sierra</h5>
-                <p class="card-text">Cantidad : 4</p>
-              </div>
-            </div>
-          </div>
+          ';
+        }
+
+          ?>
+
+          
+
         </div>
       </div>
       <div class="modal-footer">
