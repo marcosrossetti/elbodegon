@@ -1,6 +1,6 @@
 //agregar herramientas
 
-console.log("Jquery is Working");
+//console.log("Jquery is Working");
 $(document).on('click','#buttonModal',function (){
 
     $(document).on('click','#submit',function (){
@@ -13,6 +13,13 @@ $(document).on('click','#buttonModal',function (){
             cantidad : $("#cantidad").val(),
             imagen : $("#imagen").val()
         };
+
+        if(postData.imagen == ''){
+            postData.imagen = "default.jpg"
+        }
+        if(!postData.imagen.includes("http")){
+            postData.imagen = "../assets/img/herramientas/" + postData.imagen;
+        }
 
         console.log(postData);
 
