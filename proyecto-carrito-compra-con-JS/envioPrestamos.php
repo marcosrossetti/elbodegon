@@ -1,14 +1,14 @@
 <?php 
     require("db.php");
-
+    date_default_timezone_set("America/Argentina/Buenos_Aires");
     $dni = $_POST['dniPrestado'];
     $nombreApellido = $_POST['nomyapePrestado'];
     $curso = $_POST['cursoPrestado'];
     $grupo = $_POST['grupo'];
     $idHerramientas = json_decode($_POST['idHerramientas']);
-    $numbTotalHerramientas = json_decode($_POST['numbHerramientras']);
-    $time = time();
-    $fecha = date("d-m-Y (H:i:s)", $time);    
+    $numbTotalHerramientas = json_decode($_POST['numbHerramientras']);    
+    $fecha = date('Y-d-m');
+    echo $fecha;
 
     $sql = "INSERT INTO `retiros`(`id_r`, `dni`, `nom_ape`, `grupo`, `curso`, `estado`, `fecha_ret`, `fecha_dev`) VALUES ('','".$dni."','".$nombreApellido."','".$grupo."','".$curso."','1','".$fecha."','')";
     $sqlEX = mysqli_query($connection, $sql);
