@@ -8,13 +8,8 @@ $sql = "SELECT * FROM `rel_rehe` INNER JOIN `retiros` ON `rel_rehe`.`id_retiros`
 
 $sqlEX = mysqli_query($connection, $sql);
 $row = mysqli_fetch_array($sqlEX);
-$i = 0;
 
 foreach($sqlEX as $row){
-  $i += 1;
-
-
-
 $nombreH = $row['nombre'];
 $cantidad = $row['cantidad'];
 $url_img = $row['url_img'];
@@ -26,10 +21,8 @@ $listado[] = array(
 );
 }
 
-if($i != null){
-    $json = json_encode($listado[$i]);
+    $json = json_encode($listado);
     echo $json;
-}
 
 
 

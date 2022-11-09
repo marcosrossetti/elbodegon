@@ -94,13 +94,29 @@ session_start();
 
       </div>
 
-      
+      <div class="modal fade" id="modalExaminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Examinar Herramientas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                          <div id="divInfo"></div>
+                        
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
     <?php
         include('modules/footer.php');
     ?>
-
-
 
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -122,65 +138,62 @@ session_start();
             id : id
         };
 
-        $.post(url, postData, (response) => {
-                console.log(response);
-                const rta = JSON.parse(response);
+        $.ajax({
+             type: "POST",
+             url: "modules/prestamoEX.php",
+             data: {id:id},
+             success: function(response) { 
+            console.log(response);
+            const rta = JSON.parse(response);
 
-                let template = `
-                <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Examinar Herramientas</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-
-                        <div class="col">
-                          <div class="card">
-                            <img src="${rta.url_img}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">${rta.nombreH}</h5>
-                              <p class="card-text">${rta.cantidad}</p>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                `;        
-                $(template).modal("show");  
-            });
-
-
-
-    // $(document).on('click','#submit',function (){
-    
-        
-    //     // console.log(foto);
-
-        
-    //     if(postData.imagen == ''){
-    //         postData.imagen = "default.jpg"
-    //     }
-    //     if(!postData.imagen.includes("http")){
-    //         postData.imagen = "../assets/img/herramientas/" + postData.imagen;
-    //     }
-
-    //     console.log(postData);
-
-        
-    //     if(postData.producto != '' && postData.cantidad != ''){
             
-    //     }
-    // });
+            let template = '';
 
+                  
+                   $.each(rta, function(i, item){
+              // console.log(rta[i].nombreH); 
+              const n = [ rta[i].nombreH ];
+              const im = [ rta[i].url_img ];
+              const c = [ rta[i].cantidad ];
+              console.log(n);
+              console.log(im);
+              console.log(c);   
+
+              template += `
+                      <div class="col">
+                                <div class="card">
+                                  <img src="${im}" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h5 class="card-title">${n}</h5>
+                                    <p class="card-text">${c}</p>
+                                  </div>
+                                </div>
+                              </div>
+                    `
+                  }); 
+        
+        
+
+              $("#modalExaminar").modal("show"); 
+              $("#divInfo").html(template);
+
+            
+
+                 
+            }});
+
+            
+        
+
+        
+
+        //    }
+        //   });
+
+                // let template = `
+                
+                // `;        
+              
 }); 
 
     </script>
