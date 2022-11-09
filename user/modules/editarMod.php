@@ -2,7 +2,7 @@
 include("../../connection.php");
 $id = $_POST['id'];
 
-$sql = "SELECT * FROM `herramientas` WHERE `id` = $id ";
+$sql = "SELECT * FROM `herramientas` WHERE `id_h` = $id ";
 $sqlEX = mysqli_query($connection, $sql);
 
 if($sqlEX){
