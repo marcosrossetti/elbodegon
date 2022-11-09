@@ -51,7 +51,7 @@ session_start();
                             $nombre = $row['nombre'];
                             $cantidad = $row['cant'];
                             $url_img = $row['url_img'];
-                            $id = $row['id'];
+                            $id = $row['id_h'];
 
 
 

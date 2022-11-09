@@ -149,10 +149,10 @@ function comprarButtonClicked() {
       data:{ 
       dniPrestado: $("#dniPrestado").val(),
       nomyapePrestado: $("#nomyapePrestado").val(),
-      cursoPrestado: $("#cursoPrestado").val(),
       grupo: $("#grupoPrestado").val(),
-      idHerramientas: herramientas,
-      numbHerramientras: totalHerramientas},
+      cursoPrestado: $("#cursoPrestado").val(),
+      idHerramientas: JSON.stringify(herramientas),
+      numbHerramientras: JSON.stringify(totalHerramientas)},
       success: function(response) {
         console.log(response);
         console.log(totalHerramientas);
