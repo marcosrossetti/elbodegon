@@ -59,7 +59,7 @@ session_start();
                   <?php
                   include("../connection.php");
 
-                  $query = "SELECT * FROM `retiros`";
+                  $query = "SELECT * FROM `retiros` WHERE `estado` = 1";
                   $queryEX = mysqli_query($connection, $query);
                   $fila = mysqli_fetch_array($queryEX);
                   foreach($queryEX as $fila){
