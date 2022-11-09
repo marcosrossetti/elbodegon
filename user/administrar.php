@@ -44,7 +44,7 @@ session_start();
                         <?php
                             include("db.php");
 
-                            $query = "SELECT * FROM `herramientas` WHERE 1";
+                            $query = "SELECT * FROM `herramientas`";
                             $result = mysqli_query($connection,$query);
                             $row = mysqli_fetch_array($result);
 
