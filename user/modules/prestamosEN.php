@@ -1,12 +1,15 @@
 <?php
 include("../../connection.php");
-$id = $_POST['id'];
-$sql = "UPDATE `herramientas` SET estado = 0 WHERE id_h = $id";
+$id_r = $_POST['id'];
+
+$sql = "UPDATE `retiros` SET estado = 0 WHERE id_r = $id_r";
 $sqlEX = mysqli_query($connection, $sql);
 
 if($sqlEX){
 	$json = "1";
    $jsonStr = json_encode($json);
    echo $jsonStr;
+
 }
+
 ?>

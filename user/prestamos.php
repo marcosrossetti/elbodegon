@@ -78,7 +78,7 @@ session_start();
                     <td scope="col">'.$año.'</td>
                     <td scope="col"> <button  type="button" class="btn btn-dark" data-bs-toggle="modal" data-id="'.$id.'" id="examinar">Examinar</button> </td>   
                     <td scope="col">'.$fechaR.'</td>
-                    <td scope="col"> <button type="button" class="btn btn-success">Entrego</button> </td>
+                    <td scope="col"> <button type="button" class="btn btn-success" data-id="'.$id.'" id="entrego">Entrego</button> </td>
                   </tr>
                   ';
 
@@ -126,77 +126,7 @@ session_start();
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-      $(document).on('click','#examinar',function (){
-        console.log("jquery is working!");
-        let id = $(this).data('id');
-        console.log(id);
-
-            const url = "modules/prestamoEX.php";
-
-        const postData = {
-            id : id
-        };
-
-        $.ajax({
-             type: "POST",
-             url: "modules/prestamoEX.php",
-             data: {id:id},
-             success: function(response) { 
-            console.log(response);
-            const rta = JSON.parse(response);
-
-            
-            let template = '';
-
-                  
-                   $.each(rta, function(i, item){
-              // console.log(rta[i].nombreH); 
-              const n = [ rta[i].nombreH ];
-              const im = [ rta[i].url_img ];
-              const c = [ rta[i].cantidad ];
-              console.log(n);
-              console.log(im);
-              console.log(c);   
-
-              template += `
-                      <div class="col">
-                                <div class="card">
-                                  <img src="${im}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                    <h5 class="card-title">${n}</h5>
-                                    <p class="card-text">${c}</p>
-                                  </div>
-                                </div>
-                              </div>
-                    `
-                  }); 
-        
-        
-
-              $("#modalExaminar").modal("show"); 
-              $("#divInfo").html(template);
-
-            
-
-                 
-            }});
-
-            
-        
-
-        
-
-        //    }
-        //   });
-
-                // let template = `
-                
-                // `;        
-              
-}); 
-
-    </script>
+    <script type="text/javascript" src="../js/pre.js"></script>
 
   </body>
 </html>
