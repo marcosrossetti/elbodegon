@@ -20,6 +20,20 @@
         foreach ($idHerramientas as $pos => $value) {
            $sql2 = "INSERT INTO `rel_rehe`(`id`, `id_retiros`, `id_herramientas`, `cantidad`) VALUES ('','".$ult_id."','".$value."','".$numbTotalHerramientas[$pos]."')";
            $sqlEX2 = mysqli_query($connection, $sql2);
+
+           $sql3 = "SELECT `cant` FROM `herramientas` WHERE `id_h` = $value";
+           $sqlEX3 = mysqli_query($connection,$sql3);
+           $row = mysqli_fetch_array($sqlEX3);
+           
+            $cantidad = $row['cant'];
+            $cantidad = $cantidad - $numbTotalHerramientas[$pos];
+            $sql4 = "UPDATE `herramientas` SET `cant`= $cantidad WHERE `id_h` = $value";
+            $sqlEX4 = mysqli_query($connection, $sql4);
+            if($sqlEX4){
+                echo "Envio actualizado!";
+            }
+           
+
         }
     
     } else{

@@ -165,5 +165,7 @@ function comprarButtonClicked() {
 
     shoppingCartItemsContainer.innerHTML = '';
     updateShoppingCartTotal();
+    window.location = "prestarHerramientas.php";
+
   }
 }

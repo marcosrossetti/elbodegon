@@ -43,7 +43,7 @@ session_start();
                         
                         <?php
                         include("db.php");
-                        $sql = "SELECT * FROM `herramientas` WHERE 1";
+                        $sql = "SELECT * FROM `herramientas` WHERE `estado` = 1";
                         $sqlEX = mysqli_query($connection,$sql);
                         $row = mysqli_fetch_array($sqlEX);
 

@@ -13,11 +13,13 @@ foreach($sqlEX as $row){
 $nombreH = $row['nombre'];
 $cantidad = $row['cantidad'];
 $url_img = $row['url_img'];
+$id_h = $row['id_h'];
 
 $listado[] = array(
     'nombreH' => $nombreH,
     'cantidad' => $cantidad,
-    'url_img' => $url_img
+    'url_img' => $url_img,
+    'id_her' => $id_h
 );
 }
 
