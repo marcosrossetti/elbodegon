@@ -113,21 +113,45 @@ session_start();
                         <h5 class="modal-title" id="comprarModalLabel">Completar Formulario</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form action="" id="datosAlumnos" method="post">
-                        <label for="dniPrestado" class="form-label">DNI</label>
-                        <input type="number" class="form-control mb-3" min="10000000" name="dniPrestado" id="dniPrestado" required>
-                        <label for="nomyapePrestado" class="form-label">Nombre y Apellido</label>
-                        <input type="text" class="form-control mb-3" name="nomyapePrestado" id="nomyapePrestado" required>
-                        <label for="cursoPrestado" class="form-label">Curso</label>
-                        <input type="text" class="form-control mb-3" name="cursoPrestado" id="cursoPrestado" placeholder="Ej: 4C" required>
-                        <label for="grupoPrestado" class="form-label">Grupo</label>
-                        <input type="text" class="form-control mb-3" name="grupoPrestado" id="grupoPrestado" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary comprarButton" id="guardar">Enviar</button>
-                        </form>
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-form-tab" data-bs-toggle="tab" data-bs-target="#nav-form" type="button" role="tab" aria-controls="nav-form" aria-selected="true">Formulario</button>
+                            <button class="nav-link" id="nav-rfid-tab" data-bs-toggle="tab" data-bs-target="#nav-rfid" type="button" role="tab" aria-controls="nav-rfid" aria-selected="false">RFID</button>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-form" role="tabpanel" aria-labelledby="nav-form-tab">
+                            <div class="modal-body">
+                                <form action="" id="datosAlumnos" method="post">
+                                <label for="dniPrestado" class="form-label">DNI</label>
+                                <input type="number" class="form-control mb-3" min="10000000" name="dniPrestado" id="dniPrestado" required>
+                                <label for="nomyapePrestado" class="form-label">Nombre y Apellido</label>
+                                <input type="text" class="form-control mb-3" name="nomyapePrestado" id="nomyapePrestado" required>
+                                <label for="cursoPrestado" class="form-label">Curso</label>
+                                <input type="text" class="form-control mb-3" name="cursoPrestado" id="cursoPrestado" placeholder="Ej: 4C" required>
+                                <label for="grupoPrestado" class="form-label">Grupo</label>
+                                <input type="text" class="form-control mb-3" name="grupoPrestado" id="grupoPrestado" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary comprarButton" id="guardar">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-rfid" role="tabpanel" aria-labelledby="nav-rfid-tab">
+                            <div class="modal-body">
+                                <form action="" id="datosRfid" method="post">
+                                <label for="rfidPrestado" class="form-label">RFID</label>
+                                <input type="number" class="form-control mb-3" name="rfidPrestado" id="rfidPrestado" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
