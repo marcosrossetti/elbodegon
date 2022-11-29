@@ -6,6 +6,9 @@ addToShoppingCartButtons.forEach((addToCartButton) => {
 const comprarButton = document.querySelector('.comprarButton');
 comprarButton.addEventListener('click', comprarButtonClicked);
 
+const comprarButtonRfid= document.querySelector('#prestRfid');
+comprarButtonRfid.addEventListener('click', comprarButtonClickedRfid);
+
 const shoppingCartItemsContainer = document.querySelector(
   '.shoppingCartItemsContainer'
 );
@@ -168,4 +171,49 @@ function comprarButtonClicked() {
     window.location = "prestarHerramientas.php";
 
   }
+}
+
+function comprarButtonClickedRfid(){
+  var rfid = $("#rfidPrestado").val();
+
+  if(rfid!= ''){
+    var myArray = [];
+    $(".shoppingCartItemQuantity").each(function(){
+      var ArrayHerramientas = {
+        id:$(this).attr("id"),
+        cantidad: $(this).val()
+      };
+      myArray.push(ArrayHerramientas);
+      //$(this).val()
+    });
+    
+    var herramientas = [];
+    var totalHerramientas = [];
+    myArray.forEach(function(element){
+
+      herramientas.push(element.id);
+      totalHerramientas.push(element.cantidad);
+    });
+    console.log(totalHerramientas);
+    console.log(herramientas);
+
+    $.ajax({
+      url:"../proyecto-carrito-compra-con-JS/envioRfid.php",
+      type:"POST",
+      data:{ 
+      rfid: rfid,
+      idHerramientas: JSON.stringify(herramientas),
+      numbHerramientras: JSON.stringify(totalHerramientas)},
+      success: function(response) {
+        console.log(response);
+        console.log(totalHerramientas);
+      }
+    });
+
+    shoppingCartItemsContainer.innerHTML = '';
+    updateShoppingCartTotal();
+    //window.location = "prestarHerramientas.php";
+
+  }
+
 }

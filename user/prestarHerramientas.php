@@ -139,7 +139,6 @@ session_start();
                                 </form>
                             </div>
                         </div>
-
                         <div class="tab-pane fade" id="nav-rfid" role="tabpanel" aria-labelledby="nav-rfid-tab">
                             <div class="modal-body">
                                 <form action="" id="datosRfid" method="post">
@@ -148,7 +147,7 @@ session_start();
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                <button type="button" class="btn btn-primary" id="prestRfid">Enviar</button>
                                 </form>
                             </div>
                         </div>
