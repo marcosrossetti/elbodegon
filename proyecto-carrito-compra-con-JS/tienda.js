@@ -212,7 +212,7 @@ function comprarButtonClickedRfid(){
 
     shoppingCartItemsContainer.innerHTML = '';
     updateShoppingCartTotal();
-    //window.location = "prestarHerramientas.php";
+    window.location = "prestarHerramientas.php";
 
   }
 

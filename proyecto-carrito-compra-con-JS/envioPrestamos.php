@@ -27,13 +27,18 @@
             
             $cantidad = $row['cant'];
             $cantidad = $cantidad - $numbTotalHerramientas[$pos];
-            $sql4 = "UPDATE `herramientas` SET `cant`= $cantidad WHERE `id_h` = $value";
-            $sqlEX4 = mysqli_query($connection, $sql4);
-            if($sqlEX4){
-                echo "Envio actualizado!";
-            }
-            
-
+            if($cantidad == 0){
+                $sql6 = "UPDATE `herramientas` SET `cant`=$cantidad ,`estado`='0' WHERE `id_h` = $value";
+                $sqlEX6 = mysqli_query($connection, $sql6);
+                if($sqlEX6){
+                    echo "Envio actualizado!";
+                }
+            } else {
+                $sql4 = "UPDATE `herramientas` SET `cant`= $cantidad WHERE `id_h` = $value";
+                $sqlEX4 = mysqli_query($connection, $sql4);
+                if($sqlEX4){
+                    echo "Envio actualizado!";
+                }
         }
     
     } else{
